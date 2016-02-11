@@ -11,34 +11,35 @@
     {% endassets %}
 </head>
 
-<body>
-
-    <div class="container">
-        <div class="header">
-            <nav>
-                <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                </ul>
-                <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="#">Blog</a></li>
-                </ul>
-                <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="#">About</a></li>
-                </ul>
-                <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <h3 class="text-muted">cinku homepage</h3>
-        </div>
-
-{% block body %} {% endblock %}
-
-        <footer class="footer">
-            <p>&copy; cinku 2016</p>
-        </footer>
-
+<body class="panel-body">
+  <div class="container">
+    <div class="header">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="active">
+            <a href="#">Home</a>
+          </li>
+          <li role="presentation" class="active">
+            <a href="#">Blog</a>
+          </li>
+          <li role="presentation" class="active">
+            <a href="#">About</a>
+          </li>
+          <li role="presentation" class="active">
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">cinku homepage</h3>
     </div>
+  </div>
+  <div class="container">
+    {% block body %}
+    {% endblock %}
+    <footer class="footer container">
+      <hr>
+      <p>&copy; cinku 2016</p>
+    </footer>
+  </div>
 </body>
-
 </html>
