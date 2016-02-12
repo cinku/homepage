@@ -8,6 +8,7 @@ bundles = {
     '_scripts': Bundle(
         'scripts/vendor/angular.min.js',
         'scripts/vendor/bootstrap.min.js',
+        'scripts/vendor/angular.route.min.js',
         output = 'bundles/scripts.js'
     ),
     '_styles': Bundle(
@@ -21,7 +22,6 @@ assets.register(bundles)
 @app.route("/")
 def index():
     return render_template('index.html')
-
 
 if __name__ == "__main__":
     app.run()
