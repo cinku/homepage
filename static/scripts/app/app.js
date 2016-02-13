@@ -10,6 +10,12 @@ homepageApp.config(['$routeProvider', function($routeProvider){
   .when('/about', {
     templateUrl: '../static/partials/about.html'
   })
+  .when('/blog', {
+    templateUrl: '../static/partials/blog.html'
+  })
+  .when('/contact', {
+    templateUrl: '../static/partials/contact.html'
+  })
   .otherwise({
     redirectTo: '/'
   });
