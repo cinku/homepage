@@ -1,13 +1,44 @@
-{% extends "shared/layout.html" %}
-{% block body %}
-<div>
-    <h1>Hello</h1>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="row">
-    <div class="col-lg-12">
-        <h4>Marcin i Kasia</h4>
-        <p>Kolejna podroz pelna przygod</p>
+<head>
+    <title>Python Flask Bucket List App</title>
+    {% assets "_scripts" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+    {% assets "_styles" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}" />
+    {% endassets %}
+</head>
+
+<body class="panel-body">
+  <div class="container">
+    <div class="header">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="active">
+            <a href="#">Home</a>
+          </li>
+          <li role="presentation" class="active">
+            <a href="#">Blog</a>
+          </li>
+          <li role="presentation" class="active">
+            <a href="#">About</a>
+          </li>
+          <li role="presentation" class="active">
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">cinku homepage</h3>
     </div>
-</div>
-{% endblock %}
+  </div>
+  <div class="container">
+
+    <footer class="footer container">
+      <hr>
+      <p>&copy; cinku 2016</p>
+    </footer>
+  </div>
+</body>
+</html>

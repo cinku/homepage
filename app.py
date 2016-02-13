@@ -8,7 +8,7 @@ bundles = {
     '_scripts': Bundle(
         'scripts/vendor/angular.min.js',
         'scripts/vendor/bootstrap.min.js',
-        'scripts/vendor/angular.route.min.js',
+        'scripts/vendor/angular-route.min.js',
         output = 'bundles/scripts.js'
     ),
     '_styles': Bundle(
