@@ -2,3 +2,31 @@
   position: absolute;
   bottom: 0;
 }
+
+.header-wrapper {
+  height: 90px;
+  width: 100%;
+  z-index: 30;
+  position: fixed;
+  background: #fff;
+  top: 0;
+  left: 0;
+}
+
+.header {
+  margin: 0 auto;
+  width: 1200px;
+  overflow: hidden;
+  height: 90px;
+}
+
+.logo {
+  float: left;
+  vertical-align: middle;
+  margin-left: 25px;
+}
+
+.header ul {
+  float: right;
+  right: 0;
+}
