@@ -12,11 +12,10 @@
     <script src="{{ url_for('static', filename='scripts/app/app.js') }}" type="text/javascript"></script>
 </head>
 
-<body style="background-color: #00aeef">
+<body style="background: url({{ url_for('static', filename='images/bg.png' )}}); background-repeat: repeat;">
   <div class="header-wrapper">
-    <div class="header">
-      <img class="logo" style="width: 100px;" src="{{ url_for('static', filename='images/logo.png') }}" />
-      <ul class="nav nav-pills pull-right" style="margin-top: 30px">
+    <div class="header" style="margin-top: 15px;">
+      <ul class="navigation pull-right">
         <li role="presentation" class="active">
           <a href="/#/">Home</a>
         </li>

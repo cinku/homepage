@@ -4,11 +4,10 @@
 }
 
 .header-wrapper {
-  height: 90px;
+  height: 65px;
   width: 100%;
   z-index: 30;
   position: fixed;
-  background: #fff;
   top: 0;
   left: 0;
 }
@@ -17,7 +16,7 @@
   margin: 0 auto;
   width: 1200px;
   overflow: hidden;
-  height: 90px;
+  height: 65px;
 }
 
 .logo {
@@ -29,4 +28,29 @@
 .header ul {
   float: right;
   right: 0;
+}
+
+.navigation {
+  list-style: none;
+}
+
+.navigation > li {
+  float: left;
+}
+
+.navigation > li > a {
+  border: 1px solid #00aeef;
+  padding: 10px 15px;
+  display: block;
+  background-color: #00aeef;
+  margin-right: 2px;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.navigation > li > a:hover {
+  background-color: #00709d;
+  border: 1px solid #00709d;
+  text-decoration: none;
+  color: #fff;
 }
