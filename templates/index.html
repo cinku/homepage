@@ -3,13 +3,12 @@
 
 <head>
     <title>cinku's homepage</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendor/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/site.css') }}" />
-    <script src="{{ url_for('static', filename='scripts/vendor/jquery.min.js' )}}" type="text/javascript"></script>
-    <script src="{{ url_for('static', filename='scripts/vendor/bootstrap.min.js' )}}" type="text/javascript"></script>
-    <script src="{{ url_for('static', filename='scripts/vendor/angular.min.js') }}" type="text/javascript"></script>
-    <script src="{{ url_for('static', filename='scripts/vendor/angular-route.min.js') }}" type="text/javascript"></script>
-    <script src="{{ url_for('static', filename='scripts/app/app.js') }}" type="text/javascript"></script>
+    {% assets "_styles" %}
+      <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+    {% endassets %}
+    {% assets "_scripts" %}
+      <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 </head>
 
 <body style="background: url({{ url_for('static', filename='images/bg.png' )}}); background-repeat: repeat;">
@@ -52,7 +51,7 @@
       </nav>
     </div>
   </div> -->
-  <div class="container panel-body" style="overflow: none; margin-top: 100px; background-color: #f1f1f1; min-height: 500px;">
+  <div class="container panel-body" style="overflow: none; margin-top: 100px; background-color: #fff; min-height: 500px;">
     <div ng-view>
 
     </div>
