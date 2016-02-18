@@ -11,9 +11,10 @@
     {% endassets %}
 </head>
 
-<body style="background: url({{ url_for('static', filename='images/bg.png' )}}); background-repeat: repeat;">
+<body style="background-color: #ECECEC">
   <div class="header-wrapper">
     <div class="header" style="margin-top: 15px;">
+      <img src="{{ url_for('static', filename='images/logotext.png' )}}" />
       <ul class="navigation pull-right">
         <li role="presentation" class="active">
           <a href="/#/">Home</a>
@@ -51,7 +52,7 @@
       </nav>
     </div>
   </div> -->
-  <div class="container panel-body" style="overflow: none; margin-top: 100px; background-color: #fff; min-height: 500px;">
+  <div class="container panel-body" style="overflow: none; margin-top: 100px; min-height: 500px;">
     <div ng-view>
 
     </div>
