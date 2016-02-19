@@ -3,6 +3,10 @@
   bottom: 0;
 }
 
+.social-icons {
+  margin-bottom: 15px;
+}
+
 .header-wrapper {
   height: 65px;
   width: 100%;
