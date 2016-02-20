@@ -1,6 +1,17 @@
-.footer {
-  position: absolute;
+* {
+  color: white;
+}
+
+.footer-wrapper {
+  width: 100%;
+  position: fixed;
+  z-index: 30;
   bottom: 0;
+}
+
+.footer {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .social-icons {

@@ -11,7 +11,7 @@
     {% endassets %}
 </head>
 
-<body style="background-color: #ECECEC">
+<body style="background-color: #2a2a2a">
   <div class="header-wrapper">
     <div class="header" style="margin-top: 15px;">
       <img src="{{ url_for('static', filename='images/logotext.png' )}}" />
@@ -56,8 +56,9 @@
     <div ng-view>
 
     </div>
+  </div>
+  <div class="footer-wrapper">
     <footer class="footer container">
-      <hr>
       <span>&copy; cinku 2016</span>
       <div class="social-icons pull-right">
         <img width=32 src="{{ url_for('static', filename='images/facebook.png' )}}" />
