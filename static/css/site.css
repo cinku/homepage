@@ -7,24 +7,26 @@
   position: fixed;
   z-index: 30;
   bottom: 0;
+  height: 50px;
+  background-color: rgba(42, 42, 42, 0.8);
 }
 
 .footer {
   width: 1200px;
   margin: 0 auto;
-}
-
-.social-icons {
-  margin-bottom: 15px;
+  padding-top: 10px;
 }
 
 .header-wrapper {
-  height: 65px;
+  height: 95px;
   width: 100%;
   z-index: 30;
   position: fixed;
   top: 0;
   left: 0;
+  /*background-color: #2a2a2a;
+  opacity: 0.8;*/
+  background-color: rgba(42, 42, 42, 0.8);
 }
 
 .header {

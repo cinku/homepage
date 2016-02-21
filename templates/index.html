@@ -15,7 +15,7 @@
   <div class="header-wrapper">
     <div class="header" style="margin-top: 15px;">
       <img src="{{ url_for('static', filename='images/logotext.png' )}}" />
-      <ul class="navigation pull-right">
+      <ul class="navigation pull-right" style="margin-top: 15px;">
         <li role="presentation" class="active">
           <a href="/#/">Home</a>
         </li>
@@ -57,17 +57,17 @@
 
     </div>
   </div>
-  <div class="footer-wrapper">
-    <footer class="footer container">
-      <span>&copy; cinku 2016</span>
-      <div class="social-icons pull-right">
+  <footer class="footer-wrapper">
+    <div class="footer container">
+      <span style="vertical-align: -webkit-baseline-middle;">&copy; cinku 2016</span>
+      <div class="pull-right">
         <img src="{{ url_for('static', filename='images/facebook.png' )}}" />
         <img src="{{ url_for('static', filename='images/googleplus.png' )}}" />
         <img src="{{ url_for('static', filename='images/github.png' )}}" />
         <img src="{{ url_for('static', filename='images/linkedin.png' )}}" />
         <img src="{{ url_for('static', filename='images/rss.png' )}}" />
-      </div>
-    </footer>
+    </div>
   </div>
+</footer>
 </body>
 </html>
