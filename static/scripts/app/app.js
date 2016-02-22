@@ -1,6 +1,6 @@
 'use strict';
 
-var homepageApp = angular.module('homepageApp', ['ngRoute', 'directives']);
+var homepageApp = angular.module('homepageApp', ['ngRoute', 'ngAnimate', 'directives']);
 
 homepageApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
