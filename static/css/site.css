@@ -93,3 +93,27 @@
 .fade.ng-leave-active {
     opacity: 0;
 }
+
+.social-icon-outline {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 28px;
+  transition: all 0.3s;
+}
+
+.social-icon-outline:hover {
+  background-color: #fff;
+}
+
+.social-icon-outline:hover .icon {
+    color: #00aeef;
+}
+
+.icon {
+  color: #fff;
+  transition: all 0.3s;
+}
