@@ -62,20 +62,15 @@
 }
 
 .navigation > li > a {
-  border: 1px solid #00aeef;
-  padding: 10px 15px;
-  display: block;
-  background-color: #00aeef;
-  margin-right: 2px;
-  border-radius: 2px;
+  padding: 22px .7em;
   color: #fff;
+  font-weight: 400;
+  font-size: 1.1em;
 }
 
 .navigation > li > a:hover {
-  background-color: #00709d;
-  border: 1px solid #00709d;
   text-decoration: none;
-  color: #fff;
+  color: #00aeef;
 }
 
 .fade {
