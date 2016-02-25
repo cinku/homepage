@@ -15,7 +15,24 @@
 <body style="background-color: #3c3c3c">
   <div class="header-wrapper">
     <div class="header" style="margin-top: 15px;">
-      <img src="{{ url_for('static', filename='images/logotext.png' )}}" />
+      <div class="row">
+        <div class="col-xs-4">
+                  <img src="{{ url_for('static', filename='images/logotext.png' )}}" />
+        </div>
+        <div class="col-xs-2">
+<a href="/#/">HOME</a>
+        </div>
+        <div class="col-xs-2">
+<a href="/#/blog">BLOG</a>
+        </div>
+        <div class="col-xs-2">
+<a href="/#/about">ABOUT</a>
+        </div>
+        <div class="col-xs-2">
+<a href="/#/contact">CONTACT</a>
+        </div>
+      </div>
+      <!-- <img src="{{ url_for('static', filename='images/logotext.png' )}}" />
       <ul class="navigation pull-right" style="margin-top: 15px;">
         <li class="active">
           <a href="/#/">HOME</a>
@@ -29,7 +46,7 @@
         <li class="active">
           <a href="/#/contact">CONTACT</a>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
   <!-- <div class="container" style="background-color: #fff">
