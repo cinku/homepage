@@ -2,7 +2,7 @@
 
 var homepageApp = angular.module('homepageApp', ['ngRoute', 'ngAnimate', 'directives']);
 
-homepageApp.config(['$routeProvider', function($routeProvider){
+homepageApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
   $routeProvider
   .when('/', {
     templateUrl: '../static/partials/home.html'
@@ -18,5 +18,10 @@ homepageApp.config(['$routeProvider', function($routeProvider){
   })
   .otherwise({
     redirectTo: '/'
+  });
+
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
   });
 }]);
