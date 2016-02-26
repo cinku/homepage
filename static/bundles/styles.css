@@ -68,7 +68,7 @@
   font-size: 1.1em;
 }
 
-.navigation > li > a:hover {
+.navigation > li > a:hover, .navigation > li > a.active {
   text-decoration: none;
   color: #00aeef;
 }
