@@ -5,6 +5,7 @@ app = Flask(__name__)
 assets = Environment(app)
 
 scripts = Bundle('scripts/vendor/angular.min.js', 'scripts/vendor/angular-route.min.js',
+                 'scripts/vendor/angular-animate.min.js',
                  'scripts/vendor/jquery.min.js', 'scripts/vendor/bootstrap.min.js',
                  'scripts/app/app.js', 'scripts/app/directives/directives.js',
                  output='bundles/scripts.js')

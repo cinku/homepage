@@ -111,3 +111,25 @@ body {
 .contact-icon:hover i {
   color: #00aeef;
 }
+
+.fade {
+     position: absolute;
+     opacity: 1;
+ }
+ .fade.ng-enter,
+ .fade.ng-leave {
+     -webkit-transition: all 1s ease;
+     transition: all 1s ease;
+ }
+ .fade.ng-enter {
+     opacity: 0;
+ }
+ .fade.ng-enter-active {
+     opacity: 1;
+ }
+ .fade.ng-leave {
+     opacity: 1;
+ }
+ .fade.ng-leave-active {
+     opacity: 0;
+ }
