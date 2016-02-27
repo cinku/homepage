@@ -76,22 +76,15 @@ body {
   width: 30px;
   height: 30px;
   border: 2px solid #fff;
+  color: #fff;
   border-radius: 100%;
   text-align: center;
   line-height: 28px;
-  transition: all 0.3s;
+  transition: all 0.7s;
+  cursor: pointer;
 }
 
-.social-icon-outline:hover {
-  background-color: #fff;
-}
-
-.social-icon-outline:hover .icon {
-    color: #00aeef;
-}
-
-.icon {
-  color: #fff;
+.social-icon-outline i {
   transition: all 0.3s;
 }
 
@@ -102,13 +95,38 @@ body {
 
 .contact-icon {
   padding: 15px;
+  cursor: pointer;
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  border: 2px solid #fff;
+  border-radius: 10%;
+  text-align: center;
+  line-height: 28px;
+  transition: all 0.7s;
+}
+
+.contact-icon:hover, .social-icon-outline:hover  {
+  background-color: #fff;
 }
 
 .contact-icon i {
-  transition: all 1s;
+  transition: all 0.3s;
 }
 
-.contact-icon:hover i {
+.contact-icon:hover i.github, .social-icon-outline:hover i.github {
+  color: #333333;
+}
+
+.contact-icon:hover i.facebook, .social-icon-outline:hover i.facebook {
+  color: #3b5998;
+}
+
+.contact-icon:hover i.linkedin, .social-icon-outline:hover i.linkedin {
+  color: #4099ff;
+}
+
+.contact-icon:hover i.mail {
   color: #00aeef;
 }
 
