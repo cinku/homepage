@@ -151,3 +151,81 @@ body {
  .fade.ng-leave-active {
      opacity: 0;
  }
+
+ .heart-pulse {
+	-webkit-animation: heart-pulse 1s linear infinite;
+	-moz-animation: heart-pulse 1s linear infinite;
+	-ms-animation: heart-pulse 1s linear infinite;
+	animation: heart-pulse 1s linear infinite;
+}
+
+@keyframes "heart-pulse" {
+ 0% {
+    -webkit-transform: scale(1.1);
+   	-moz-transform: scale(1.1);
+   	-o-transform: scale(1.1);
+   	-ms-transform: scale(1.1);
+   	transform: scale(1.1);
+ }
+ 50% {
+    -webkit-transform: scale(0.8);
+   	-moz-transform: scale(0.8);
+   	-o-transform: scale(0.8);
+   	-ms-transform: scale(0.8);
+   	transform: scale(0.8);
+ }
+ 100% {
+    -webkit-transform: scale(1);
+   	-moz-transform: scale(1);
+   	-o-transform: scale(1);
+   	-ms-transform: scale(1);
+   	transform: scale(1);
+ }
+
+}
+
+@-moz-keyframes heart-pulse {
+ 0% {
+   -moz-transform: scale(1.1);
+   transform: scale(1.1);
+ }
+ 50% {
+   -moz-transform: scale(0.8);
+   transform: scale(0.8);
+ }
+ 100% {
+   -moz-transform: scale(1);
+   transform: scale(1);
+ }
+
+}
+
+@-webkit-keyframes "heart-pulse" {
+ 0% {
+   -webkit-transform: scale(1.1);
+   transform: scale(1.1);
+ }
+ 50% {
+   -webkit-transform: scale(0.8);
+   transform: scale(0.8);
+ }
+ 100% {
+   -webkit-transform: scale(1);
+   transform: scale(1);
+ }
+
+}
+
+@-ms-keyframes "heart-pulse" {
+ 0% {
+   -ms-transform: scale(1.1);
+   transform: scale(1.1);
+ }
+ 50% {
+   -ms-transform: scale(0.8);
+   transform: scale(0.8);
+ }
+ 100% {
+   -ms-transform: scale(1);
+   transform: scale(1);
+ }
