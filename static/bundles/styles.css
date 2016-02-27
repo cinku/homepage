@@ -105,3 +105,15 @@ body {
   width: 1200px;
   margin: 0 auto;
 }
+
+.contact-icon {
+  padding: 15px;
+}
+
+.contact-icon i {
+  transition: all 1s;
+}
+
+.contact-icon:hover i {
+  color: #00aeef;
+}
