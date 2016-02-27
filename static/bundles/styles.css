@@ -8,6 +8,10 @@
   color: white;
 }
 
+body {
+  font-family: 'Lato';
+}
+
 .footer-wrapper {
   width: 100%;
   position: fixed;
