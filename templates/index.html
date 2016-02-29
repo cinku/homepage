@@ -13,9 +13,9 @@
     {% endassets %}
 </head>
 
-<body style="background-color: #3c3c3c">
+<body>
   <div class="header-wrapper">
-    <div class="header" style="margin-top: 15px;">
+    <div class="header">
       <!-- <div class="row">
         <div class="col-xs-4">
                   <img src="{{ url_for('static', filename='images/logotext.png' )}}" />
@@ -34,7 +34,7 @@
         </div>
       </div> -->
       <img src="{{ url_for('static', filename='images/logotext.png' )}}" />
-      <ul class="navigation pull-right" style="margin-top: 15px;" nav-menu>
+      <ul class="navigation pull-right header-menu" nav-menu>
         <li>
           <a href="/">HOME</a>
         </li>
@@ -71,8 +71,8 @@
       </nav>
     </div>
   </div> -->
-  <div class="panel-body" style="margin-top: 100px;">
-    <div class="container" style="position: relative">
+  <div class="panel-body content-wrapper">
+    <div class="container content">
         <div ng-view class="col-xs-12 fade">
 
         </div>
@@ -80,8 +80,8 @@
   </div>
   <footer class="footer-wrapper">
     <div class="footer container">
-      <span style="vertical-align: -webkit-baseline-middle;">
-        Made with <span><i class="fa fa-heart heart-pulse" style="color: #ee0189"></i></span> by cinku!
+      <span class="text-middle">
+        Made with <span><i class="fa fa-heart heart-pulse heart"></i></span> by cinku!
       </span>
       <div class="pull-right">
         <a href="http://www.facebook.com/malymarcin"><div class="social-icon-outline">

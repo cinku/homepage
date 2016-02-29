@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Lato';
+  background-color: #3c3c3c;
 }
 
 .footer-wrapper {
@@ -38,6 +39,27 @@ body {
   width: 1200px;
   overflow: hidden;
   height: 65px;
+  margin-top: 15px;
+}
+
+.header-menu {
+  margin-top: 20px;
+}
+
+.content-wrapper {
+  margin-top: 100px;
+}
+
+.content {
+  position: relative;
+}
+
+.text-middle {
+  vertical-align: -webkit-baseline-middle;
+}
+
+.heart {
+  color: #ee0189;
 }
 
 .logo {
@@ -86,11 +108,6 @@ body {
 
 .social-icon-outline i {
   transition: all 0.3s;
-}
-
-.content-wrapper {
-  width: 1200px;
-  margin: 0 auto;
 }
 
 .contact-icon {
@@ -150,6 +167,18 @@ body {
  }
  .fade.ng-leave-active {
      opacity: 0;
+ }
+
+ .content-block {
+   padding-top: 15px;
+ }
+
+ .content-title {
+   margin-bottom: 20px;
+ }
+
+ .homepage-text {
+    font-size: 18px;
  }
 
  .heart-pulse {
