@@ -63,3 +63,5 @@ target/
 
 # flask stuff:
 static/.webassets-cache/
+
+*.db

@@ -5,7 +5,7 @@ from sqlite3 import *
 
 app = Flask(__name__)
 assets = Environment(app)
-db = sqlite('homepage.db')
+db = SqliteDatabase('homepage.db')
 
 scripts = Bundle('scripts/vendor/angular.min.js', 'scripts/vendor/angular-route.min.js',
                  'scripts/vendor/angular-animate.min.js',
@@ -17,12 +17,20 @@ styles = Bundle('css/vendor/bootstrap.min.css', 'css/site.css',
 assets.register('_scripts', scripts)
 assets.register('_styles', styles)
 
-class Post(Model):
+class BaseModel(Model):
+    class Meta:
+        database = db
+
+class Post(BaseModel):
     title = CharField()
     url = CharField(unique=True)
     content = TextField()
     published = BooleanField(index=True)
     timestamp = DateTimeField(default=datetime.datetime.now, index=True)
+
+class Tag(BaseModel):
+    post = ForeignKeyField(Post, related_name="tags")
+    name = CharField(unique=True)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -31,4 +39,7 @@ def index(path):
 
 
 if __name__ == "__main__":
+    db.connect()
+    db.create_tables([Post, Tag], safe=True)
+    db.close()
     app.run()
