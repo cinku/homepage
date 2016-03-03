@@ -1,11 +1,13 @@
 from flask import Flask, render_template
 from flask.ext.assets import Environment, Bundle
-from peewee import *
+from flask_sqlalchemy import SQLAlchemy
 from sqlite3 import *
+from datetime import datetime
 
 app = Flask(__name__)
 assets = Environment(app)
-db = SqliteDatabase('homepage.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/homepage.db'
+db = SQLAlchemy(app)
 
 scripts = Bundle('scripts/vendor/angular.min.js', 'scripts/vendor/angular-route.min.js',
                  'scripts/vendor/angular-animate.min.js',
@@ -17,29 +19,40 @@ styles = Bundle('css/vendor/bootstrap.min.css', 'css/site.css',
 assets.register('_scripts', scripts)
 assets.register('_styles', styles)
 
-class BaseModel(Model):
-    class Meta:
-        database = db
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80), unique=True)
+    content = db.Column(db.Text)
+    pub_date = db.Column(db.DateTime)
 
-class Post(BaseModel):
-    title = CharField()
-    url = CharField(unique=True)
-    content = TextField()
-    published = BooleanField(index=True)
-    timestamp = DateTimeField(default=datetime.datetime.now, index=True)
+    tag_id = db.Column(db.Integer, db.ForeignKey('tag.id'))
+    tag = db.relationship('Tag', backref=db.backref('posts', lazy='dynamic'))
 
-class Tag(BaseModel):
-    post = ForeignKeyField(Post, related_name="tags")
-    name = CharField(unique=True)
+    def __init__(self, title, content, tag, pub_date=None):
+        self.title = title
+        self.content = content
+        if pub_date is None:
+            pub_date = datetime.utcnow()
+        self.pub_date = pub_date
+        self.tag = tag
+
+    def __repr__(self):
+        return '<Post %r>' % self.title
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return '<Tag %r>' % self.name
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def index(path):
     return render_template('index.html')
 
-
 if __name__ == "__main__":
-    db.connect()
-    db.create_tables([Post, Tag], safe=True)
-    db.close()
     app.run()
