@@ -147,26 +147,16 @@ body {
   color: #00aeef;
 }
 
-.fade {
-     position: absolute;
-     opacity: 1;
+.content-view {
+    position: absolute;
+}
+ 
+ .content-view.ng-enter {
+     animation: fadeIn 1s;
  }
- .fade.ng-enter,
- .fade.ng-leave {
-     -webkit-transition: all 1s ease;
-     transition: all 1s ease;
- }
- .fade.ng-enter {
-     opacity: 0;
- }
- .fade.ng-enter-active {
-     opacity: 1;
- }
- .fade.ng-leave {
-     opacity: 1;
- }
- .fade.ng-leave-active {
-     opacity: 0;
+ 
+ .content-view.ng-leave {
+     animation: fadeOut 1s;
  }
 
  .content-block {
