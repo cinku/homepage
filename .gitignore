@@ -63,3 +63,6 @@ target/
 
 # flask stuff:
 static/.webassets-cache/
+Include/
+Scripts/
+pip*
