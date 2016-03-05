@@ -3,11 +3,13 @@ from flask.ext.assets import Environment, Bundle
 from flask_sqlalchemy import SQLAlchemy
 from sqlite3 import *
 from datetime import datetime
+from flask_restful import Resource, Api
 
 app = Flask(__name__)
 assets = Environment(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/homepage.db'
 db = SQLAlchemy(app)
+api = Api(app)
 
 scripts = Bundle('scripts/vendor/angular.min.js', 'scripts/vendor/angular-route.min.js',
                  'scripts/vendor/angular-animate.min.js',
@@ -54,6 +56,12 @@ class Tag(db.Model):
 @app.route('/<path:path>')
 def index(path):
     return render_template('index.html')
+    
+class Blog(Resource):
+    def get(self):
+        return {'posts': 'first post'}
+
+api.add_resource(Blog, '/posts')
 
 if __name__ == "__main__":
     app.run()

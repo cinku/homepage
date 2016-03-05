@@ -465,8 +465,15 @@ angular.module('directives', [])
 
 var controllers = angular.module('controllers', []);
 
-controllers.controller('BlogController',
-    function($scope)
-    {
-        $scope.text = 'hi faggot';
-    }); 
+controllers.controller('BlogController', function($scope, $http){
+ $http.get('/posts').
+    success(function(data, status, headers, config) {
+      var posts = angular.fromJson(data);
+      console.log(posts);
+      console.log(data);
+      $scope.posts = posts['posts'];
+    }).
+    error(function(data, status, headers, config) {
+      console.log('error');
+    });
+}); 
