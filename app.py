@@ -3,11 +3,12 @@ from flask.ext.assets import Environment, Bundle
 from flask_sqlalchemy import SQLAlchemy
 from sqlite3 import *
 from datetime import datetime
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, marshal_with, fields
+import json
 
 app = Flask(__name__)
 assets = Environment(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/homepage.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/sqlite/tmp/homepage.db'
 db = SQLAlchemy(app)
 api = Api(app)
 
@@ -30,6 +31,13 @@ class Post(db.Model):
 
     tag_id = db.Column(db.Integer, db.ForeignKey('tag.id'))
     tag = db.relationship('Tag', backref=db.backref('posts', lazy='dynamic'))
+    
+    def serialize():
+        return {
+            'title': fields.String,
+            'content': fields.String,
+            'pub_date': fields.DateTime(dt_format='iso8601')
+        }
 
     def __init__(self, title, content, tag, pub_date=None):
         self.title = title
@@ -58,8 +66,9 @@ def index(path):
     return render_template('index.html')
     
 class Blog(Resource):
-    def get(self):
-        return {'posts': 'first post'}
+    @marshal_with(Post.serialize())
+    def get(self, **kwargs):
+        return Post.query.all()
 
 api.add_resource(Blog, '/posts')
 
