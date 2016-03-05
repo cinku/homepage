@@ -13,6 +13,7 @@ scripts = Bundle('scripts/vendor/angular.min.js', 'scripts/vendor/angular-route.
                  'scripts/vendor/angular-animate.min.js',
                  'scripts/vendor/jquery.min.js', 'scripts/vendor/bootstrap.min.js',
                  'scripts/app/app.js', 'scripts/app/directives/directives.js',
+                 'scripts/app/controllers/blog.js',
                  output='bundles/scripts.js')
 styles = Bundle('css/vendor/bootstrap.min.css', 'css/site.css',
                 output='bundles/styles.css')

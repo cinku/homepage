@@ -1,6 +1,6 @@
 'use strict';
 
-var homepageApp = angular.module('homepageApp', ['ngRoute', 'ngAnimate', 'directives']);
+var homepageApp = angular.module('homepageApp', ['ngRoute', 'ngAnimate', 'directives', 'controllers']);
 
 homepageApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
   $routeProvider
@@ -11,7 +11,8 @@ homepageApp.config(['$routeProvider', '$locationProvider', function($routeProvid
     templateUrl: '../static/partials/about.html'
   })
   .when('/blog', {
-    templateUrl: '../static/partials/blog.html'
+    templateUrl: '../static/partials/blog.html',
+    controller: 'BlogController'
   })
   .when('/contact', {
     templateUrl: '../static/partials/contact.html'
