@@ -68,7 +68,7 @@ def index(path):
 class Blog(Resource):
     @marshal_with(Post.serialize())
     def get(self, **kwargs):
-        return Post.query.all()
+        return Post.query.order_by(Post.pub_date.desc()).all()
 
 api.add_resource(Blog, '/posts')
 
