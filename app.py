@@ -4,7 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlite3 import *
 from datetime import datetime
 from flask_restful import Resource, Api, marshal_with, fields
-import json
 
 app = Flask(__name__)
 assets = Environment(app)
