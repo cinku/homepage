@@ -22,30 +22,33 @@ styles = Bundle('css/vendor/bootstrap.min.css', 'css/site.css',
 assets.register('_scripts', scripts)
 assets.register('_styles', styles)
 
+tags = db.Table('tags',
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
+    db.Column('post_id', db.Integer, db.ForeignKey('post.id'))
+)
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), unique=True)
     content = db.Column(db.Text)
     pub_date = db.Column(db.DateTime)
 
-    tag_id = db.Column(db.Integer, db.ForeignKey('tag.id'))
-    tag = db.relationship('Tag', backref=db.backref('posts', lazy='dynamic'))
+    tags = db.relationship('Tag', secondary="tags", backref=db.backref('posts', lazy='dynamic'))
     
     def serialize():
         return {
             'title': fields.String,
             'content': fields.String,
-            'pub_date': fields.DateTime(dt_format='iso8601'),
-            'tag': fields.Nested(Tag.serialize())
+            'pub_date': fields.DateTime(dt_format='iso8601')
         }
 
-    def __init__(self, title, content, tag, pub_date=None):
+    def __init__(self, title, content, tags, pub_date=None):
         self.title = title
         self.content = content
         if pub_date is None:
             pub_date = datetime.utcnow()
         self.pub_date = pub_date
-        self.tag = tag
+        self.tags = tags
 
     def __repr__(self):
         return '<Post %r>' % self.title
