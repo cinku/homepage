@@ -33,13 +33,14 @@ class Post(db.Model):
     content = db.Column(db.Text)
     pub_date = db.Column(db.DateTime)
 
-    tags = db.relationship('Tag', secondary="tags", backref=db.backref('posts', lazy='dynamic'))
+    tags = db.relationship('Tag', secondary="tags", backref=db.backref('posts', cascade='all', lazy='joined'))
     
     def serialize():
         return {
             'title': fields.String,
             'content': fields.String,
-            'pub_date': fields.DateTime(dt_format='iso8601')
+            'pub_date': fields.DateTime(dt_format='iso8601'),
+            'tags': fields.List(fields.Nested(Tag.serialize()))
         }
 
     def __init__(self, title, content, tags, pub_date=None):
