@@ -468,8 +468,7 @@ var controllers = angular.module('controllers', []);
 controllers.controller('BlogController', function($scope, $http){
  $http.get('/posts').
     success(function(data, status, headers, config) {
-      $scope.posts = data;
-      console.log(data);
+      $scope.posts = data.posts;
     }).
     error(function(data, status, headers, config) {
       console.log('error');

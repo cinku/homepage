@@ -1,9 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask.ext.assets import Environment, Bundle
 from flask_sqlalchemy import SQLAlchemy
 from sqlite3 import *
 from datetime import datetime
-from flask_restful import Resource, Api, marshal_with, fields
+from flask_restful import Resource, Api
 
 app = Flask(__name__)
 assets = Environment(app)
@@ -33,14 +33,16 @@ class Post(db.Model):
     content = db.Column(db.Text)
     pub_date = db.Column(db.DateTime)
 
-    tags = db.relationship('Tag', secondary="tags", backref=db.backref('posts', cascade='all', lazy='joined'))
-    
-    def serialize():
+    tags = db.relationship('Tag', secondary=tags, backref="posts")
+
+    @property
+    def serialize(self):
         return {
-            'title': fields.String,
-            'content': fields.String,
-            'pub_date': fields.DateTime(dt_format='iso8601'),
-            'tags': fields.List(fields.Nested(Tag.serialize()))
+            'id': self.id,
+            'title': self.title,
+            'content': self.content,
+            'pub_date': self.pub_date,
+            'tags': [i.name for i in self.tags]
         }
 
     def __init__(self, title, content, tags, pub_date=None):
@@ -51,23 +53,20 @@ class Post(db.Model):
         self.pub_date = pub_date
         self.tags = tags
 
-    def __repr__(self):
-        return '<Post %r>' % self.title
-
 class Tag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
     
-    def serialize():
+    @property
+    def serialize(self):
         return {
-            'name': fields.String
+            'id': self.id,
+            'name': self.name,
+            # 'posts': [{'id': i.id, 'title': i.title} for i in self.posts]
         }
 
     def __init__(self, name):
         self.name = name
-
-    def __repr__(self):
-        return '<Tag %r>' % self.name
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -75,11 +74,10 @@ def index(path):
     return render_template('index.html')
     
 class Blog(Resource):
-    @marshal_with(Post.serialize())
-    def get(self, **kwargs):
-        return Post.query.order_by(Post.pub_date.desc()).all()
+    def get(self):
+        return jsonify({'posts': [i.serialize for i in Post.query.order_by(Post.pub_date.desc()).all()]})
 
 api.add_resource(Blog, '/posts')
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
