@@ -10,7 +10,8 @@
 
 body {
   font-family: 'Lato';
-  background-color: #3c3c3c;
+  /*background-color: #3c3c3c;*/
+  background-color: #000;
 }
 
 .footer-wrapper {
@@ -122,7 +123,7 @@ body {
   display: inline-block;
   width: 90px;
   height: 90px;
-  border: 2px solid #fff;
+  border: 2px solid #00aeef;
   border-radius: 10%;
   text-align: center;
   line-height: 28px;
