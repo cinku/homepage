@@ -68,6 +68,18 @@ class Tag(db.Model):
 
     def __init__(self, name):
         self.name = name
+        
+# class PostSchema(Schema):
+#     id = fields.Integer()
+#     title = fields.String()
+#     content = fields.String()
+#     pub_date = fields.DateTime()
+#     tags = fields.Nested('TagSchema', exclude=('posts', ), many=True)
+    
+# class TagSchema(Schema):
+#     id = fields.Integer()
+#     name = fields.String()
+#     posts = fields.Nested('PostSchema', exclude=('tags', ), many=True)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -76,7 +88,8 @@ def index(path):
     
 class Blog(Resource):
     def get(self):
-        return jsonify({'posts': [i.serialize for i in Post.query.order_by(Post.pub_date.desc()).all()]})
+        # return jsonify({'posts': [PostSchema().dump(i).data for i in Post.query.order_by(Post.pub_date.desc()).all()]}) 
+        return jsonify({'posts': [i.serialize for i in Post.query.order_by(Post.pub_date.desc()).all()]})        
 
 api.add_resource(Blog, '/posts')
 
