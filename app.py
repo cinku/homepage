@@ -86,12 +86,22 @@ class Tag(db.Model):
 def index(path):
     return render_template('index.html')
     
-class Blog(Resource):
+class Posts(Resource):
     def get(self):
         # return jsonify({'posts': [PostSchema().dump(i).data for i in Post.query.order_by(Post.pub_date.desc()).all()]}) 
-        return jsonify({'posts': [i.serialize for i in Post.query.order_by(Post.pub_date.desc()).all()]})        
+        return jsonify({'posts': [i.serialize for i in Post.query.order_by(Post.pub_date.desc()).all()]})
 
-api.add_resource(Blog, '/posts')
+class Tags(Resource):
+    def get(self):
+        return jsonify({'tags': [i.serialize for i in Tag.query.all()]})
+        
+class PostUpdate(Resource):
+    def get(self, id):
+        return jsonify({'post': Post.query.get(id).serialize})
+
+api.add_resource(Posts, '/posts')
+api.add_resource(Tags, '/tags')
+api.add_resource(PostUpdate, '/posts/<id>')
 
 if __name__ == "__main__":
     app.run(debug=True)
