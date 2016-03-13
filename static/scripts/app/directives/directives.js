@@ -25,6 +25,10 @@ angular.module('directives', [])
         urlMap[url.replace(routePattern, '')] = link;
       }
     }
+    
+    element.on('click', function() {
+        $('#navbar').collapse('hide');
+    });
 
     scope.$on('$routeChangeStart', function() {
       var pathLink = urlMap[$location.path()];
