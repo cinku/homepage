@@ -90,6 +90,18 @@ body {
   font-size: 1.1em;
 }
 
+.navbar-burger {
+    border: 1px solid #fff;
+}
+
+.navbar-burger > span {
+    background-color: #fff;
+}
+
+.navbar-burger:hover, .navbar-burger:not(.collapsed) {
+    background-color: #000;
+}
+
 .navigation > li > a:hover, .navigation > li > a.active {
   text-decoration: none;
   /*color: #00aeef;*/
