@@ -30,23 +30,26 @@ body {
 }
 
 .header-wrapper {
-  height: 95px;
+  /*height: 95px;
   width: 100%;
   z-index: 30;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0;*/
   /*background-color: #2a2a2a;
   opacity: 0.8;*/
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 0;
   background-color: rgba(42, 42, 42, 0.8);
 }
 
 .header {
-  margin: 0 auto;
-  width: 1200px;
-  overflow: hidden;
-  height: 65px;
-  margin-top: 15px;
+  /*margin: 0 auto;*/
+  /*width: 1200px;*/
+  /*overflow: hidden;*/
+  /*height: 65px;*/
+  /*margin-top: 15px;*/
 }
 
 .header-menu {
@@ -76,17 +79,18 @@ body {
 }
 
 .header ul {
-  float: right;
-  right: 0;
+    /*margin: 0 auto;*/
+  /*float: right;*/
+  /*right: 0;*/
 }
 
-.navigation {
+/*.navigation {
   list-style: none;
 }
 
 .navigation > li {
   float: left;
-}
+}*/
 
 .navigation > li > a {
   padding: 22px .7em;
