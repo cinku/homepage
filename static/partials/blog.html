@@ -4,7 +4,7 @@
         <div class="blog-post-header" style="margin-bottom: 10px;">
             <h3 style="margin-bottom: 5px"><strong>{{ post.title }}</strong></h3>
             <div class="blog-post-header-details" style="font-size: 11px">
-                {{ post.pub_date | date:'yyyy-MM-dd HH:mm' }} in
+                <span class="fa fa-clock-o"></span> {{ post.pub_date | date:'yyyy-MM-dd HH:mm' }} in
                 <span ng-repeat="tag in post.tags" class="label label-success" style="font-size: 100%; font-weight: 400; margin-left: 5px;">{{ tag }} </span>
             </div>
         </div>
